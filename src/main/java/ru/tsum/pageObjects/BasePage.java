@@ -24,6 +24,8 @@ public class BasePage {
 
 
 
+
+
     public BasePage(AppManager manager) {
         this.manager = manager;
         property = manager.getProperty();
@@ -46,19 +48,20 @@ public class BasePage {
 
     public WebElement getElement(By locator) {
         WebElement el = null;
-        try {
+       // try {
             WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
             wait.withMessage(String.format("Element was not found\nLocator - %s", locator.toString()));
             return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        } catch(Exception ex) {
-            if(isElementPresent(notificationFrame)){
-                driver.switchTo().frame(driver.findElement(notificationFrame));
+      //  } catch(Exception ex) {
+        //    if(isElementPresent(notificationFrame)){
+              /*  driver.switchTo().frame(getElement(notificationFrame));
                 getElement(closeNotifications).click();
                 driver.switchTo().defaultContent();
-                getElement(locator);
-            }
-            return el;
-        }
+                refreshPage();
+                getElement(locator); */
+         //   }
+         //   return el;
+        //}
     }
 
 

@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import ru.tsum.utils.AppManager;
 
 public class MainPage extends BasePage {
-    private By personalAccount = By.cssSelector("a[href='/login/']");
-    private By nickName = By.cssSelector("a[href='/personal/orders/']");
+    private By personalAccount = By.cssSelector("[class = 'header__link ng-star-inserted']");
+   // private By nickName = By.cssSelector("a[href='/personal/orders/']");
     private By auth = By.cssSelector("p.auth-layout__control-button:first-child");
     private By registration = By.cssSelector("p.auth-layout__control-button:last-child");
     private By email = By.cssSelector(".input-wrapper [formcontrolname='email']");
@@ -41,14 +41,15 @@ public class MainPage extends BasePage {
     }
 
     public MainPage logout() {
-        getElement(nickName).click();
+        getElement(personalAccount).click();
+        log.info("Logout click");
         getElement(logout).click();
-        log.info("Login");
+        log.info("Logout");
         return this;
     }
 
     public String getNicName() {
-        return getOuterTextAttribute(nickName);
+        return getOuterTextAttribute(personalAccount);
     }
 
     public String getNotificationMessage() {
@@ -65,6 +66,7 @@ public class MainPage extends BasePage {
 
     public MainPage setMainPage() {
         manager.getDriver().get(property.getProperty("baseURL"));
+        log.info("Set main page");
         return this;
     }
 }

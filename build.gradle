@@ -29,12 +29,6 @@ dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
 }
 
-test {
-    useJUnitPlatform {
-        includeTags 'PositiveTest' , 'NegativeTest'
-    }
-    systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
-}
 
 task('allTests', type: Test) {
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', true

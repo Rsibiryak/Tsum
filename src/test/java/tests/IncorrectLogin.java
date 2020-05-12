@@ -1,13 +1,12 @@
 package tests;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import ru.tsum.utils.testExtensions.SetupTeardownDriverExtension;
+
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,7 +18,7 @@ public class IncorrectLogin extends BaseTest {
     private String password = "Test123";
     private String message = "Неверный логин или пароль";
 
-    @Test
+    @Test()
     @Tag("NegativeTest")
     public void checkLogin() {
         manager.getMainPg().login(login, password);

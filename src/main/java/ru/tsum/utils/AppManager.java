@@ -1,11 +1,9 @@
 package ru.tsum.utils;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.tsum.pageObjects.MainPage;
-
 import java.util.Properties;
 
 public class AppManager {
@@ -23,6 +21,7 @@ public class AppManager {
         property = propertyManager.getProperty();
 
         System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe");
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(property.getProperty("baseURL"));
