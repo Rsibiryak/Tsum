@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.tsum.utils.AppManager;
 import ru.tsum.utils.TestData;
+
 import java.util.Properties;
 
 public class BasePage {
@@ -19,13 +20,6 @@ public class BasePage {
     private final int TIMEOUT;
     private WebDriver driver;
 
-    private By closeNotifications = By.cssSelector(".close[type='button']");
-    private By notificationFrame = By.cssSelector(".flocktory-widget");
-
-
-
-
-
     public BasePage(AppManager manager) {
         this.manager = manager;
         property = manager.getProperty();
@@ -35,36 +29,11 @@ public class BasePage {
         driver = manager.getDriver();
     }
 
-/*
     public WebElement getElement(By locator) {
-        //Fast design for popupwindow. I do not like this if.
-        if(isElementPresent(showNotifications)){
-            getElement(showNotifications).click();
-        }
-            WebDriverWait wait = new WebDriverWait(manager.getDriver(), TIMEOUT);
-            wait.withMessage(String.format("Element was not found\nLocator - %s", locator.toString()));
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    } */
-
-    public WebElement getElement(By locator) {
-        WebElement el = null;
-       // try {
-            WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-            wait.withMessage(String.format("Element was not found\nLocator - %s", locator.toString()));
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-      //  } catch(Exception ex) {
-        //    if(isElementPresent(notificationFrame)){
-              /*  driver.switchTo().frame(getElement(notificationFrame));
-                getElement(closeNotifications).click();
-                driver.switchTo().defaultContent();
-                refreshPage();
-                getElement(locator); */
-         //   }
-         //   return el;
-        //}
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        wait.withMessage(String.format("Element was not found\nLocator - %s", locator.toString()));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-
-
 
 
     public Boolean isElementPresent(By locator) {
