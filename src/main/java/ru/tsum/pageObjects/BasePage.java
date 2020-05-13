@@ -2,7 +2,6 @@ package ru.tsum.pageObjects;
 
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,6 +11,13 @@ import ru.tsum.utils.TestData;
 
 import java.util.Properties;
 
+/**
+ * BasePage
+ *
+ * Base page for all PageObject
+ *
+ * @author Alexander_Suvorov
+ */
 public class BasePage {
     public TestData testData;
     protected AppManager manager;
@@ -33,11 +39,6 @@ public class BasePage {
         WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
         wait.withMessage(String.format("Element was not found\nLocator - %s", locator.toString()));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-
-    public Boolean isElementPresent(By locator) {
-        return manager.getDriver().findElements(locator).size() != 0;
     }
 
     public void refreshPage() {

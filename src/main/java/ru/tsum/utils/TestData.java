@@ -1,5 +1,12 @@
 package ru.tsum.utils;
 
+/**
+ * TestData
+ *
+ * Generate test data
+ *
+ * @author Alexander_Suvorov
+ */
 public class TestData {
     public String getRandomEmail() {
         return String.format("AutoTest_%s@gmail.com", (int) (Math.random() * 100000));

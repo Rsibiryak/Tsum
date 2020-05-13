@@ -20,7 +20,6 @@ public class SetupTeardownDriverExtension implements BeforeAllCallback {
         if (!started) {
             started = true;
             manager = AppManager.getInstance();
-            //ToDo
             manager.getScreenshotActions().deleteAllScreenshot();
             context.getStore(ExtensionContext.Namespace.GLOBAL).put("my_tests", new CloseableOnlyOnceResource());
         }
@@ -29,7 +28,7 @@ public class SetupTeardownDriverExtension implements BeforeAllCallback {
     private static class CloseableOnlyOnceResource implements ExtensionContext.Store.CloseableResource {
         @Override
         public void close() {
-           // AppManager.stopInstance();
+            //AppManager.stopInstance();
         }
     }
 }

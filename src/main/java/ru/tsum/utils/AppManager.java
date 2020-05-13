@@ -4,8 +4,16 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.tsum.pageObjects.MainPage;
+
 import java.util.Properties;
 
+/**
+ * AppManager
+ *
+ * Common gate for app management
+ *
+ * @author Alexander_Suvorov
+ */
 public class AppManager {
     private WebDriver driver;
     private PropertyManager propertyManager;
@@ -15,8 +23,7 @@ public class AppManager {
     private MainPage mainPg;
     private static Logger log;
 
-
-    private AppManager () {
+    private AppManager() {
         propertyManager = new PropertyManager();
         property = propertyManager.getProperty();
 
@@ -31,7 +38,7 @@ public class AppManager {
         screenshot = new ScreenshotActions(this);
     }
 
-    public static AppManager getInstance()  {
+    public static AppManager getInstance() {
         if (instance == null) {
             instance = new AppManager();
             log.info("Driver initialization");

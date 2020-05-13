@@ -1,18 +1,8 @@
 package tests;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import ru.tsum.utils.testExtensions.SetupTeardownDriverExtension;
-
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@ExtendWith({SetupTeardownDriverExtension.class})
-@RunWith(SerenityRunner.class)
 public class IncorrectLogin extends BaseTest {
     private String login = "Rsibiryak@rambler.ru";
     private String password = "Test123";

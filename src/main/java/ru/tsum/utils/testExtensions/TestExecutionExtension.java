@@ -7,7 +7,7 @@ import ru.tsum.utils.AppManager;
 
 /**
  * TestExecutionExtension
- *
+ * <p>
  * Actions before and after test execution
  *
  * @author Alexander_Suvorov
@@ -17,7 +17,7 @@ public class TestExecutionExtension implements AfterTestExecutionCallback, Befor
 
     @Override
     public void beforeTestExecution(ExtensionContext context) {
-      manager.getLogger().info(String.format("Run test: %s ", context.getDisplayName()));
+        manager.getLogger().info(String.format("Run test: %s ", context.getDisplayName()));
     }
 
     /**
@@ -31,7 +31,6 @@ public class TestExecutionExtension implements AfterTestExecutionCallback, Befor
         String testName = context.getDisplayName();
 
         if (testResult) {
-            String message = String.format("Test failed \n%s ", context.getTestClass().get().getName());
             manager.getScreenshotActions().takeScreenshot(testName);
 
         } else {

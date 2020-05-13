@@ -4,6 +4,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * PropertyManager
+ *
+ * Work with property files
+ *
+ * @author Alexander_Suvorov
+ */
 public class PropertyManager {
     private String configPropertyPath = "src/test/resources/config.properties";
     private Properties configProperty;
@@ -12,7 +19,6 @@ public class PropertyManager {
         try {
             this.configProperty = readProperty(configPropertyPath);
         } catch (IOException e) {
-          //log todo
         }
     }
 
@@ -27,8 +33,7 @@ public class PropertyManager {
             fis.close();
             return configProperty;
         } catch (IOException ex) {
-            //ToDo
-//            CustomLogger.getLogger().error(String.format("'Config.property' file was not read \n%s", ex.getMessage()));
+            CustomLogger.getLogger().error(String.format("'Config.property' file was not read \n%s", ex.getMessage()));
             throw ex;
         }
     }

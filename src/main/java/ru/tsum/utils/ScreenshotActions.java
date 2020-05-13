@@ -6,10 +6,9 @@ import java.io.File;
 import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 
-
 /**
  * ScreenshotActions
- *
+ * <p>
  * Work with screenshot
  *
  * @author Alexander_Suvorov
@@ -22,7 +21,6 @@ public class ScreenshotActions {
         this.manager = manager;
         path = System.getProperty("user.dir") + manager.getProperty().getProperty("screenshotPath");
     }
-
 
     /**
      * Create and save a screenshot in the folder
@@ -37,7 +35,6 @@ public class ScreenshotActions {
             manager.getLogger().error(String.format("Can not create screenshot \n%s", ex.getMessage()));
         }
     }
-
 
     /**
      * Delete all files from screenshot folder

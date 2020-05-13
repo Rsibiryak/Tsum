@@ -1,15 +1,8 @@
 package tests;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import ru.tsum.utils.testExtensions.SetupTeardownDriverExtension;
-
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@ExtendWith({SetupTeardownDriverExtension.class})
 public class LoginTest extends BaseTest {
     private String login = "Rsibiryak@rambler.ru";
     private String password = "Test1234";

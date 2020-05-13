@@ -3,9 +3,15 @@ package ru.tsum.pageObjects;
 import org.openqa.selenium.By;
 import ru.tsum.utils.AppManager;
 
+/**
+ * MainPage
+ *
+ * Actions with main page.
+ *
+ * @author Alexander_Suvorov
+ */
 public class MainPage extends BasePage {
     private By personalAccount = By.cssSelector("[class = 'header__link ng-star-inserted']");
-   // private By nickName = By.cssSelector("a[href='/personal/orders/']");
     private By auth = By.cssSelector("p.auth-layout__control-button:first-child");
     private By registration = By.cssSelector("p.auth-layout__control-button:last-child");
     private By email = By.cssSelector(".input-wrapper [formcontrolname='email']");
@@ -31,18 +37,20 @@ public class MainPage extends BasePage {
         getElement(personalAccount).click();
         getElement(registration).click();
         fillCredentialsAndClick(login, password);
+        log.info("Registration");
         return this;
     }
 
     private void fillCredentialsAndClick(String login, String pass) {
         getElement(email).sendKeys(login);
+        log.info(String.format("Set login %s", login));
         getElement(password).sendKeys(pass);
+        log.info(String.format("Set password %s", pass));
         getElement(loginButton).click();
     }
 
     public MainPage logout() {
         getElement(personalAccount).click();
-        log.info("Logout click");
         getElement(logout).click();
         log.info("Logout");
         return this;
